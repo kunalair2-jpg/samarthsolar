@@ -61,7 +61,7 @@ a { text-decoration: none; color: inherit; }
 /* =====================
    MAGNETIC KINETIC HEADER
 ======================== */
-.header { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.5rem 0; mix-blend-mode: multiply; }
+.header { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.5rem 0; background: #ffffff; border-bottom: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
 .header-container { display: flex; justify-content: space-between; align-items: center; padding: 0 3vw; }
 .logo { font-size: 1.5rem; font-family: 'Plus Jakarta Sans'; font-weight: 700; letter-spacing: 2px; display: inline-flex; align-items:center; gap: 10px;}
 .logo i { color: var(--neon); font-size:1.2rem;}
