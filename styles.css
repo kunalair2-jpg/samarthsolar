@@ -61,7 +61,7 @@ a { text-decoration: none; color: inherit; }
 /* =====================
    MAGNETIC KINETIC HEADER
 ======================== */
-.header { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.5rem 0; mix-blend-mode: multiply; }
+.header { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1rem 0; background: rgba(250, 250, 250, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); box-shadow: 0 4px 30px rgba(0,0,0,0.05); transition: 0.3s;}
 .header-container { display: flex; justify-content: space-between; align-items: center; padding: 0 3vw; }
 .logo { font-size: 1.5rem; font-family: 'Plus Jakarta Sans'; font-weight: 700; letter-spacing: 2px; display: inline-flex; align-items:center; gap: 10px;}
 .logo i { color: var(--neon); font-size:1.2rem;}
@@ -105,7 +105,7 @@ a { text-decoration: none; color: inherit; }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, transparent 100%); z-index: 2;}
 
 .hero-content-wrapper { height: 100%; display: flex; align-items: center; position: relative; z-index: 3;}
-.full-width-hero { width: 100% !important; max-width: 900px; padding-top: 5rem; }
+.full-width-hero { width: 100% !important; max-width: 900px; padding-top: 8rem; }
 .full-width-hero h1, .full-width-hero p, .full-width-hero .tagline { color: #fff !important; }
 .full-width-hero .outline-text { color: transparent !important; -webkit-text-stroke: 2px rgba(255,255,255,0.7); }
 .full-width-hero .btn-magnetic { background: #fff; border: 1px solid #fff; }
