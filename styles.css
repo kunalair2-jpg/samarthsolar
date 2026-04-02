@@ -97,21 +97,29 @@ a { text-decoration: none; color: inherit; }
 .btn-text { transition: color 0.4s; display: flex; align-items:center; gap: 10px; }
 
 /* =====================
-   HERO 2.0 (FULL BACKGROUND)
+   HERO 3.0 (GLASS LUXURY)
 ======================== */
-.hero-full-bg { padding: 0 !important; position: relative; height: 100vh; display: flex; align-items: center; overflow: hidden; }
+.glass-hero-layout { padding: 0 !important; position: relative; height: 100vh; display: flex; align-items: center; overflow: hidden; }
 .hero-bg-image { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1;}
 .hero-bg-image img { width: 100%; height: 100%; object-fit: cover; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.5) 100%); z-index: 2;}
 
-.hero-content-wrapper { height: 100%; display: flex; align-items: center; position: relative; z-index: 3;}
-.full-width-hero { width: 100% !important; max-width: 900px; padding-top: 8rem; }
-.full-width-hero h1, .full-width-hero p, .full-width-hero .tagline { color: #fff !important; }
-.full-width-hero .outline-text { color: transparent !important; -webkit-text-stroke: 2px rgba(255,255,255,0.7); }
-.full-width-hero .btn-magnetic { background: #fff; border: 1px solid #fff; }
-.full-width-hero .btn-text { color: #000; }
-.full-width-hero .tagline { border-left-color: #fff; color: #fff; }
-.full-width-hero .hero-sub { color: rgba(255,255,255,0.85) !important; font-size: 1.35rem;}
+.hero-content-wrapper { height: 100%; display: flex; align-items: center; justify-content: flex-start; position: relative; z-index: 3;}
+.glass-hero-card {
+    background: rgba(255, 255, 255, 0.85); /* Frosty white */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+    padding: 5rem 4rem;
+    max-width: 850px;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.15);
+    margin-top: 5rem;
+}
+
+.glass-hero-card .tagline { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: var(--neon); letter-spacing: 4px; margin-bottom: 2rem; display:inline-block; border-left: 2px solid var(--neon); padding-left: 15px; font-weight: 700; text-transform: uppercase;}
+.glass-hero-card h1 { font-family: 'Archivo Black', sans-serif; font-size: clamp(3.5rem, 6vw, 6.5rem); line-height: 0.95; margin-bottom: 2rem; color: #000; letter-spacing: 0px; text-transform: uppercase;}
+.glass-hero-card .hero-sub { color: var(--muted); font-size: 1.25rem; font-weight: 500; font-family: 'Inter', sans-serif; margin-bottom: 3.5rem; max-width: 600px;}
+.glass-hero-card .btn-magnetic { box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 2px solid #000; }
 
 /* =====================
    INFINITE MARQUEE
