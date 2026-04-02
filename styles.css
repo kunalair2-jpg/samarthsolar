@@ -1,0 +1,249 @@
+/* =================================================================
+   20+ YR VETERAN UI/UX - "NEO-BRUTALIST LIGHT ENGINEERING"
+================================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Manrope:wght@300;400;500;700;800&display=swap');
+
+:root {
+  --bg: #FAFAFA;
+  --panel: #FFFFFF;
+  --surface: #F3F4F6;
+  --text: #050505;
+  --muted: #6B7280;
+  --accent: #000000;
+  --neon: #2563EB; /* Aggressive Electric Blue */
+  
+  --border: rgba(0, 0, 0, 0.1);
+  --border-active: rgba(0, 0, 0, 0.9);
+  
+  --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background-color: var(--bg); color: var(--text); font-family: 'Manrope', sans-serif; overflow-x: hidden; line-height: 1.6; }
+
+/* Physics Cursor */
+.cursor-dot {
+  position: fixed; top: 0; left: 0; width: 12px; height: 12px; background: var(--neon);
+  border-radius: 50%; pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, background 0.3s;
+}
+.cursor-hover .cursor-dot { width: 50px; height: 50px; background: rgba(37,99,235,0.15); border: 1px solid var(--neon); }
+
+/* Grid Overlay & Glowing Orbs */
+.bg-grid {
+  position: fixed; inset: 0; pointer-events: none; z-index: -2; opacity: 0.5;
+  background-size: 50px 50px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+}
+.bg-glow {
+  position: fixed; inset: 0; pointer-events: none; z-index: -3;
+  background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.03), transparent 40%),
+              radial-gradient(circle at 20% 80%, rgba(0, 0, 0, 0.02), transparent 40%);
+}
+
+/* Typography Tools */
+.font-syncopate { font-family: 'Syncopate', sans-serif; text-transform: uppercase; letter-spacing: -1px; }
+.outline-text { color: transparent; -webkit-text-stroke: 1px var(--text); }
+h1, h2, h3, h4 { font-weight: 700; }
+a { text-decoration: none; color: inherit; }
+
+.container { max-width: 1400px; margin: 0 auto; padding: 0 4vw; }
+.relative { position: relative; }
+.section { padding: 10rem 0; }
+.section-title-wrap { display: flex; align-items: baseline; gap: 2rem; margin-bottom: 5rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem;}
+.section-title-wrap h2 { font-size: clamp(2rem, 5vw, 4rem); line-height: 1;}
+
+/* =====================
+   MAGNETIC KINETIC HEADER
+======================== */
+.header { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1.5rem 0; mix-blend-mode: multiply; }
+.header-container { display: flex; justify-content: space-between; align-items: center; padding: 0 3vw; }
+.logo { font-size: 1.5rem; font-family: 'Syncopate'; font-weight: 700; letter-spacing: 2px; display: inline-flex; align-items:center; gap: 10px;}
+.logo i { color: var(--neon); font-size:1.2rem;}
+
+.nav-wrapper { background: rgba(0,0,0,0.03); backdrop-filter: blur(10px); padding: 0.5rem 2rem; border-radius: 100px; border: 1px solid var(--border); }
+.nav { display: flex; gap: 3rem; }
+.nav-link { font-size: 0.75rem; font-family: 'Syncopate'; letter-spacing: 2px; font-weight: 700; position: relative; display:inline-block; padding: 0.5rem;}
+.nav-link::before { content:''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background: var(--accent); transition: var(--transition); }
+.nav-link:hover::before { width: 100%; }
+
+.header-actions { display: flex; align-items: center; gap: 2rem; }
+.contact-pill { display: flex; align-items: center; gap: 10px; font-size: 0.75rem; font-family: 'Syncopate'; border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 50px; font-weight: 700; background: var(--panel);}
+.pulse-dot { width: 6px; height: 6px; background: var(--neon); border-radius: 50%; box-shadow: 0 0 10px var(--neon); animation: pulse 2s infinite; }
+@keyframes pulse { 0% { opacity: 1;} 50% {opacity:0.3;} 100% {opacity:1;} }
+.icon-btn { background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 50%; width: 50px; height: 50px; display:flex; align-items:center; justify-content:center; font-size: 1.2rem; position: relative;}
+.cart-count { position: absolute; top: 0; right: 0; background: var(--neon); color: #fff; font-family: 'Syncopate'; font-size: 0.6rem; font-weight: 700; padding: 2px 6px; border-radius: 10px;}
+
+/* =====================
+   MAGNETIC BRUTAL BTN
+======================== */
+.btn-magnetic {
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  padding: 1.5rem 3rem; background: var(--panel); border: 1px solid var(--border);
+  font-family: 'Syncopate'; font-weight: 700; font-size: 0.85rem; letter-spacing: 2px;
+  overflow: hidden; border-radius: 100px; z-index: 1; box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+.btn-magnetic::before {
+  content: ''; position: absolute; top: 100%; left: 0; width: 100%; height: 100%;
+  background: var(--text); transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1); z-index: -1;
+}
+.btn-magnetic:hover::before { transform: translateY(-100%); }
+.btn-magnetic:hover .btn-text { color: var(--bg); }
+.btn-text { transition: color 0.4s; display: flex; align-items:center; gap: 10px; }
+
+/* =====================
+   HERO 2.0
+======================== */
+.hero-section { height: 100vh; display: flex; align-items: center; padding: 0 4vw; position: relative; overflow: hidden;}
+.hero-text-cont { width: 55%; z-index: 2; position: relative;}
+.tagline { font-family: 'Syncopate'; font-size: 0.75rem; color: var(--neon); letter-spacing: 4px; margin-bottom: 2rem; display:inline-block; border-left: 2px solid var(--neon); padding-left: 15px; font-weight: 700;}
+.hero-text-cont h1 { font-size: clamp(3rem, 7vw, 6.5rem); line-height: 0.95; margin-bottom: 2rem; word-spacing: -5px;}
+.hero-sub { font-size: 1.25rem; color: var(--muted); max-width: 500px; margin-bottom: 3.5rem; font-weight: 500;}
+
+.hero-visual { width: 45%; position: absolute; right: 0; top: 50%; transform: translateY(-50%); height: 80vh; z-index: 1;}
+.mask-container { width: 100%; height: 100%; clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%); overflow: hidden; position: relative; border-left: 1px solid var(--border);}
+.mask-container img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: var(--transition); }
+.hero-visual:hover .mask-container img { opacity: 1; transform: scale(1.05);}
+.scanline { position: absolute; top:0; left:0; width: 100%; height: 2px; background: rgba(37, 99, 235, 0.4); box-shadow: 0 0 20px var(--neon); animation: scan 4s linear infinite;}
+@keyframes scan { 0%{top: -10%;} 100%{top: 110%;} }
+
+.floating-tech-badge { position: absolute; bottom: 10%; left: 0%; transform: translateX(-50%); width: 140px; height: 140px; border-radius: 50%; background: var(--panel); border: 1px solid var(--border); display:flex; align-items:center; justify-content:center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.circle-spin { position: absolute; inset: -5px; border: 1px dashed var(--border-active); border-radius: 50%; animation: spin 15s linear infinite;}
+.badge-content { text-align: center; font-family: 'Syncopate'; font-size: 0.65rem; letter-spacing: 2px; color: var(--text); font-weight: 700;}
+.badge-content i { font-size: 1.5rem; color: var(--neon); margin-bottom: 5px; display:block;}
+@keyframes spin { 100%{transform: rotate(360deg);}}
+
+/* =====================
+   INFINITE MARQUEE
+======================== */
+.marquee-section { padding: 4rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--panel); overflow: hidden; white-space: nowrap; display: flex;}
+.marquee-track { display: inline-block; animation: marquee 30s linear infinite; }
+.marquee-track span { font-family: 'Syncopate'; font-size: 3rem; font-weight: 700; margin-right: 3rem; color: var(--text); }
+@keyframes marquee { 0%{transform: translateX(0);} 100%{transform: translateX(-50%);} }
+
+/* =====================
+   SPOTLIGHT CARDS SYSTEM
+======================== */
+.services-spotlight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 2rem; margin-top: 3rem;}
+
+/* The actual spotlight CSS magic */
+.spotlight-card {
+  position: relative; border-radius: 0; background: var(--border); padding: 1px; /* 1px padding is the border */
+  display: flex; flex-direction: column; overflow: hidden;
+}
+/* This pseudo-element follows the mouse via JS vars to create glowing border */
+.spotlight-border {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(37, 99, 235, 0.4), transparent 40%);
+  opacity: 0; transition: opacity 0.5s;
+}
+.spotlight-card:hover .spotlight-border { opacity: 1; }
+
+.card-inner {
+  position: relative; background: var(--panel); z-index: 2; height: 100%; display: flex; flex-direction: column;
+}
+/* Product Specific Inside */
+.prd-img-wrap { height: 350px; padding: 3rem; position: relative; border-bottom: 1px solid var(--border); background: var(--surface); display:flex; align-items:center; justify-content:center; overflow:hidden;}
+.prd-img { max-height: 100%; object-fit: contain; opacity: 0.95; transition: var(--transition); }
+.spotlight-card:hover .prd-img { opacity: 1; transform: scale(1.1); }
+.prd-badge { position: absolute; top: 1.5rem; left: 1.5rem; font-family:'Syncopate'; font-size:0.6rem; border: 1px solid var(--neon); color: var(--neon); padding: 0.3rem 0.8rem; letter-spacing: 2px; font-weight: 700; background: #fff;}
+
+.prd-eye { position: absolute; top: 1.5rem; right: 1.5rem; background: var(--panel); border: 1px solid var(--border); color:var(--text); width:45px; height:45px; border-radius:50%; font-size:1.2rem; display:flex; align-items:center; justify-content:center; overflow:hidden;}
+.prd-eye::before { content:''; position:absolute; bottom:0; left:0; width:100%; height:0; background:var(--text); transition:0.3s; z-index:-1;}
+.prd-eye:hover::before { height:100%; }
+.prd-eye:hover { color:#fff; border-color:transparent;}
+
+.prd-content { padding: 2.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+.prd-title { font-size: 1.35rem; margin-bottom: 1rem; color: var(--text);}
+.prd-desc { color: var(--muted); margin-bottom: 2.5rem; flex-grow: 1; font-weight: 500;}
+.prd-foot { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid var(--border); padding-top: 1.5rem; }
+.prd-price { font-family: 'Syncopate'; font-size: 1.6rem; color: var(--text); font-weight: 800;}
+.add-btn { background: var(--text); color: var(--bg); border: none; width: 45px; height: 45px; border-radius: 50%; font-size: 1.5rem; display:flex; align-items:center; justify-content:center; transition:0.3s; cursor:pointer;}
+.add-btn:hover { background: var(--neon); color: #fff; transform: rotate(90deg); }
+
+/* Service Specific Inside */
+.srv-img { height: 260px; overflow: hidden; border-bottom: 1px solid var(--border); position: relative;}
+.srv-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: var(--transition); }
+.spotlight-card:hover .srv-img img { opacity: 1; transform: scale(1.05); }
+.srv-info { padding: 2.5rem; position: relative;}
+.srv-icon { position: absolute; right: 2.5rem; top: -2.5rem; background: var(--panel); border: 1px solid var(--border); width: 60px; height: 60px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; color: var(--neon); z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.05);}
+.srv-info h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+.srv-info p { color: var(--muted); font-weight: 500;}
+
+/* PILLS */
+.filter-pills { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.pill { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 0.8rem 2rem; border-radius: 100px; font-family: 'Syncopate'; font-size: 0.75rem; letter-spacing: 2px; font-weight: 700;}
+.pill:hover { border-color: var(--text); color: var(--text); }
+.pill.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+/* =====================
+   ABSTRACT FOOTER
+======================== */
+.mega-footer { border-top: 1px solid var(--border); padding-top: 8rem; margin-top: 5rem; background: var(--panel); position: relative; overflow: hidden;}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 0.5fr; gap: 4rem; padding-bottom: 6rem;}
+.ft-brand h2 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 1.5rem;}
+.ft-desc { color: var(--muted); max-width: 400px; font-size: 1.1rem; font-weight: 500;}
+.ft-info h4 { font-family: 'Syncopate'; font-size: 0.7rem; letter-spacing: 2px; color: var(--muted); margin-bottom: 1.5rem; font-weight: 800;}
+.ft-link { display: block; font-size: 1.2rem; margin-bottom: 0.75rem; border-bottom: 1px solid transparent; width: fit-content; transition: 0.3s; font-weight: 700;}
+.ft-link:hover { color: var(--neon); border-color: var(--neon);}
+.ft-text { color: var(--text); font-size: 1.1rem; font-weight: 500;}
+.ft-bottom { display: flex; justify-content: space-between; border-top: 1px solid var(--border); padding: 2rem 0; font-family: 'Syncopate'; font-size: 0.7rem; letter-spacing: 2px; color: var(--muted); font-weight: 700;}
+
+.circle-btn { width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--border); display:flex; align-items:center; justify-content:center; color: var(--text); margin-bottom: 1rem; transition:0.3s;}
+.circle-btn:hover { background: var(--text); color: #fff; }
+
+/* =====================
+   SIDEBAR & MODAL NEO
+======================== */
+.side-overlay, .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); z-index: 2000; opacity: 0; visibility: hidden; transition: 0.5s; }
+.side-overlay.active, .modal-overlay.active { opacity: 1; visibility: visible; }
+.side-panel { position: fixed; right: -500px; top: 0; width: 100%; max-width: 480px; height: 100vh; background: var(--panel); border-left: 1px solid var(--border); z-index: 2001; transition: right 0.6s cubic-bezier(0.19, 1, 0.22, 1); display: flex; flex-direction: column;}
+.side-panel.active { right: 0; }
+.side-head { padding: 2.5rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;}
+.side-head h3 { font-size: 1rem; color: var(--text); letter-spacing: 2px; font-weight: 800;}
+.sq-btn { width: 45px; height: 45px; background: var(--bg); border: 1px solid var(--border); display:flex; align-items:center; justify-content:center; color: var(--text); font-size: 1.5rem; transition: 0.3s;}
+.sq-btn:hover { background: var(--neon); color: #fff; border-color: transparent;}
+
+.side-items { flex-grow: 1; overflow-y: auto; padding: 2.5rem; display: flex; flex-direction: column; gap: 2rem; }
+.cart-item { display: flex; gap: 1.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+.cart-item-img { width: 80px; height: 80px; background: var(--surface); border: 1px solid var(--border); object-fit: contain; padding: 0.5rem;}
+.cart-info { flex-grow: 1; display:flex; flex-direction:column; }
+.cart-title { font-family: 'Syncopate'; font-size: 0.8rem; font-weight: 700; margin-bottom: 0.5rem;}
+.cart-price { color: var(--neon); font-size: 1.2rem; font-weight: 800; margin-bottom: auto;}
+.qty-box { display: flex; border: 1px solid var(--border); width: fit-content; margin-top: 1rem;}
+.qty-box button { background: transparent; border: none; color: var(--text); width: 30px; height: 30px;}
+.qty-box button:hover { background: rgba(0,0,0,0.05); }
+.qty-box input { background: transparent; border: none; text-align: center; color: var(--text); width: 30px; font-weight: 700;}
+
+.side-foot { border-top: 1px solid var(--border); padding: 2.5rem; background: var(--bg);}
+
+.modal-box { background: var(--border); width: 100%; max-width: 1100px; padding: 1px; transform: scale(0.95); transition: 0.5s; position: relative; }
+.modal-overlay.active .modal-box { transform: scale(1); }
+.close-modal { position: absolute; top: 0; right: 0; transform: translate(50%, -50%); z-index: 10; background: var(--panel); border-radius: 50%;}
+.modal-grid { display: grid; grid-template-columns: 1fr 1fr; background: var(--panel);}
+.modal-img { padding: 4rem; background: var(--surface); border-right: 1px solid var(--border); display:flex; align-items:center; justify-content:center;}
+.modal-img img { max-height: 400px; transition: 0.5s;}
+.modal-img:hover img { transform: scale(1.05); }
+.modal-data { padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center;}
+
+/* Scroll Animations */
+.scroll-reveal { opacity: 0; transform: translateY(50px); transition: 1s cubic-bezier(0.19, 1, 0.22, 1); }
+.scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
+
+@media(max-width:1024px){
+  .hero-layout, .modal-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero-text-cont, .hero-visual { width: 100%; position: relative; top: auto; right: auto; transform: none;}
+}
+@media(max-width:768px){
+  .nav-wrapper { display: none; }
+  .hero-section { padding-top: 8rem;}
+  h1 { font-size: 3rem !important;}
+  .services-spotlight-grid { grid-template-columns: 1fr; }
+}
