@@ -97,26 +97,21 @@ a { text-decoration: none; color: inherit; }
 .btn-text { transition: color 0.4s; display: flex; align-items:center; gap: 10px; }
 
 /* =====================
-   HERO 2.0
+   HERO 2.0 (FULL BACKGROUND)
 ======================== */
-.hero-section { height: 100vh; display: flex; align-items: center; padding: 0 4vw; position: relative; overflow: hidden;}
-.hero-text-cont { width: 55%; z-index: 2; position: relative;}
-.tagline { font-family: 'Plus Jakarta Sans'; font-size: 0.75rem; color: var(--neon); letter-spacing: 4px; margin-bottom: 2rem; display:inline-block; border-left: 2px solid var(--neon); padding-left: 15px; font-weight: 700;}
-.hero-text-cont h1 { font-size: clamp(3rem, 7vw, 6.5rem); line-height: 0.95; margin-bottom: 2rem; word-spacing: -5px;}
-.hero-sub { font-size: 1.25rem; color: var(--muted); max-width: 500px; margin-bottom: 3.5rem; font-weight: 500;}
+.hero-full-bg { padding: 0 !important; position: relative; height: 100vh; display: flex; align-items: center; overflow: hidden; }
+.hero-bg-image { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1;}
+.hero-bg-image img { width: 100%; height: 100%; object-fit: cover; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, transparent 100%); z-index: 2;}
 
-.hero-visual { width: 45%; position: absolute; right: 0; top: 50%; transform: translateY(-50%); height: 80vh; z-index: 1;}
-.mask-container { width: 100%; height: 100%; clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%); overflow: hidden; position: relative; border-left: 1px solid var(--border);}
-.mask-container img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: var(--transition); }
-.hero-visual:hover .mask-container img { opacity: 1; transform: scale(1.05);}
-.scanline { position: absolute; top:0; left:0; width: 100%; height: 2px; background: rgba(37, 99, 235, 0.4); box-shadow: 0 0 20px var(--neon); animation: scan 4s linear infinite;}
-@keyframes scan { 0%{top: -10%;} 100%{top: 110%;} }
-
-.floating-tech-badge { position: absolute; bottom: 10%; left: 0%; transform: translateX(-50%); width: 140px; height: 140px; border-radius: 50%; background: var(--panel); border: 1px solid var(--border); display:flex; align-items:center; justify-content:center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-.circle-spin { position: absolute; inset: -5px; border: 1px dashed var(--border-active); border-radius: 50%; animation: spin 15s linear infinite;}
-.badge-content { text-align: center; font-family: 'Plus Jakarta Sans'; font-size: 0.65rem; letter-spacing: 2px; color: var(--text); font-weight: 700;}
-.badge-content i { font-size: 1.5rem; color: var(--neon); margin-bottom: 5px; display:block;}
-@keyframes spin { 100%{transform: rotate(360deg);}}
+.hero-content-wrapper { height: 100%; display: flex; align-items: center; position: relative; z-index: 3;}
+.full-width-hero { width: 100% !important; max-width: 900px; padding-top: 5rem; }
+.full-width-hero h1, .full-width-hero p, .full-width-hero .tagline { color: #fff !important; }
+.full-width-hero .outline-text { color: transparent !important; -webkit-text-stroke: 2px rgba(255,255,255,0.7); }
+.full-width-hero .btn-magnetic { background: #fff; border: 1px solid #fff; }
+.full-width-hero .btn-text { color: #000; }
+.full-width-hero .tagline { border-left-color: #fff; color: #fff; }
+.full-width-hero .hero-sub { color: rgba(255,255,255,0.85) !important; font-size: 1.35rem;}
 
 /* =====================
    INFINITE MARQUEE
@@ -237,13 +232,12 @@ a { text-decoration: none; color: inherit; }
 .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
 
 @media(max-width:1024px){
-  .hero-layout, .modal-grid { grid-template-columns: 1fr; }
+  .modal-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
-  .hero-text-cont, .hero-visual { width: 100%; position: relative; top: auto; right: auto; transform: none;}
 }
 @media(max-width:768px){
   .nav-wrapper { display: none; }
-  .hero-section { padding-top: 8rem;}
   h1 { font-size: 3rem !important;}
   .services-spotlight-grid { grid-template-columns: 1fr; }
+  .full-width-hero { padding-top: 8rem; }
 }
